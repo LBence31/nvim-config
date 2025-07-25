@@ -24,11 +24,11 @@ return {
 		custom_theme.inactive.c.fg = "#e1dff4"
 		require("lualine").setup({
 			options = {
-				theme = custom_theme
+				theme = custom_theme,
 			},
 			sections = {
-				lualine_c = {{"filename", path=1}}
-			}
+				lualine_c = { { "filename", path = 1 } },
+			},
 		})
-	end	
+	end,
 }

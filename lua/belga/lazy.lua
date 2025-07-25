@@ -14,17 +14,15 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup(
-	{
-		{ import = "belga.plugins" },
-	},
-	{
-		checker = {
-			enabled = true,
-			notify = false,
-		},
-		chage_detection = {
-			notify = false,
-		},
-	}
-)
+require("lazy").setup({
+  spec = {
+    { import = "belga.plugins" },
+  },
+  checker = { 
+	enabled = true,
+	notify = falsem
+  },
+  change_detections = {
+	  notify = false,
+  }
+})

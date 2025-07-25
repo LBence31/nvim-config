@@ -1,3 +1,3 @@
 require("belga.remap")
-require("belga.set")
+require("belga.opts")
 require("belga.lazy")
