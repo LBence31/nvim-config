@@ -17,10 +17,12 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.o.undofile = false
+vim.o.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+vim.opt.termguicolors = true
 
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -33,8 +35,6 @@ vim.o.timeoutlen = 500
 
 vim.o.splitright = false
 vim.o.splitbelow = false
-
-vim.o.inccommand = "split"
 
 vim.o.cursorline = true
 
@@ -49,3 +49,20 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.hl.on_yank()
 	end,
 })
+
+if vim.fn.has("wsl") == 1 then
+	-- This is NeoVim's recommended way to solve clipboard sharing if you use WSL
+	-- See: https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
+	vim.g.clipboard = {
+		name = "wsl-clip",
+		copy = {
+			["+"] = "clip.exe",
+			["*"] = "clip.exe",
+		},
+		paste = {
+			["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+			["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+		},
+		cache_enabled = 0,
+	}
+end
