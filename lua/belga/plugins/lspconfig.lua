@@ -155,7 +155,7 @@ return {
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		local servers = {
-			-- clangd = {},
+			clangd = {},
 			-- gopls = {},
 			basedpyright = {},
 
@@ -190,6 +190,7 @@ return {
 			"stylua", -- Used to format Lua code
 			"isort",
 			"black",
+			"clang-format",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
