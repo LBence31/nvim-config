@@ -16,8 +16,9 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = "~/AppData/Local/.vim/undodir"
 vim.o.undofile = true
+vim.g.undotree_DiffCommand = "FC"
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
