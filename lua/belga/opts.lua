@@ -16,7 +16,7 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = "~/AppData/Local/.vim/undodir"
+vim.opt.undodir = vim.loop.os_homedir() .. "./.vim/undodir"
 vim.o.undofile = true
 vim.g.undotree_DiffCommand = "FC"
 
