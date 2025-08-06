@@ -72,6 +72,16 @@ return {
 			-- By default, you may press `<c-space>` to show the documentation.
 			-- Optionally, set `auto_show = true` to show the documentation after a delay.
 			documentation = { auto_show = false, auto_show_delay_ms = 500 },
+
+			menu = {
+				-- nvim-cmp style menu
+				draw = {
+					columns = {
+						{ "label", "label_description", gap = 1 },
+						{ "kind_icon", "kind" },
+					},
+				},
+			},
 		},
 
 		sources = {
@@ -80,7 +90,6 @@ return {
 				lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
 			},
 		},
-
 		snippets = { preset = "luasnip" },
 
 		-- Blink.cmp includes an optional, recommended rust fuzzy matcher,
